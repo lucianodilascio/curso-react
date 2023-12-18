@@ -1,13 +1,14 @@
 import React from 'react'
-import Navbar from './components/Navbar'
+import NavBar from './components/Navbar'
 import ItemListContainer from './components/ItemListContainer'
+import './App.css'
 
 const App = () => {
   return (
     <div>
 
-      <Navbar />
-      <ItemListContainer greeting={"Bienvenidos a Basquetmania!"} />
+      <NavBar />
+      <ItemListContainer  greeting={"Bienvenidos a Basquetmania!"} />
 
     </div>
   )

@@ -4,7 +4,7 @@ const CartWidget = () => {
     return (
         <div>
 
-            Carrito 4
+            4
 
         </div>
     )
