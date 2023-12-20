@@ -6,7 +6,44 @@
   text-transform: uppercase;
   text-shadow: -3px 3px 2px rgb(58, 57, 57);
   color: red;
-
   
+}
+.titulo2 {
 
+height: 50px ;
+margin-top: 100px;
+}
+.titulo2:hover{
+  font-weight: 500;
+  text-transform: uppercase;
+  color: orange;
+}
+
+.titulo3:hover{
+  font-weight: 500;
+  text-transform: uppercase;
+  color: orange;
+}
+.tituloBasquetmania {
+
+
+  margin-top: 10px;
+}
+
+
+.logo {
+  width: 200px;
+  width: 200px;
+}
+
+.desplegable{
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: black;
+}
+
+.desplegable:hover{
+  font-weight: 500;
+  text-transform: uppercase;
+  color: orange;
 }

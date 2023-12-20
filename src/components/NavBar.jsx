@@ -2,6 +2,7 @@ import React from 'react'
 import CartWidget from './CartWidget'
 import { FaShoppingCart } from "react-icons/fa";
 import { Flex, Spacer, Box, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
+import logo from '../components/img/logo.png';
 
 
 const NavBar = () => {
@@ -9,9 +10,12 @@ const NavBar = () => {
         <div>
 
             <Flex className='titulo'>
-                <Box p='4'>
-                    Basquetmania
+                <Box className='tituloBasquetmania' p='4'>
+                    <img className='logo' src={logo} alt="Basquetmania Logo" />
+
+
                 </Box>
+
 
 
                 <Spacer />
@@ -19,12 +23,12 @@ const NavBar = () => {
 
 
                 <Menu>
-                    <MenuButton>
+                    <MenuButton className='titulo2'>
                         CATEGORIAS
                     </MenuButton>
                     <MenuList>
-                        <MenuItem>Zapatillas</MenuItem>
-                        <MenuItem>Indumentaria</MenuItem>
+                        <MenuItem className='desplegable'>Zapatillas</MenuItem>
+                        <MenuItem className='desplegable'>Indumentaria</MenuItem>
 
                     </MenuList>
                 </Menu>
@@ -33,8 +37,8 @@ const NavBar = () => {
                 <Spacer />
 
 
-                <Box p='4'>
-                    <FaShoppingCart size={30}/> 
+                <Box className='titulo3' p='20'>
+                    <FaShoppingCart size={40} />
                     <CartWidget />
                 </Box>
             </Flex>
