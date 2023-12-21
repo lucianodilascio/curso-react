@@ -1,10 +1,8 @@
 import React from 'react'
-import ItemList from './ItemList'
-import { useParams } from 'react-router-dom'
+import ItemDetail from './ItemDetail'
+import {useParams} from 'react-router-dom'
 
 const ItemListContainer = ({ greeting }) => {
-
-  const {categoriaId} = useParams()
 
   const productos = [
     { id: 1, titulo: "Curry", descripcion: "Zapatilla Stephen Curry", precio: 85000, categoria:"zapatillas" },
@@ -45,4 +43,4 @@ const ItemListContainer = ({ greeting }) => {
   )
 }
 
-export default ItemListContainer;
+export default ItemDetailContainer

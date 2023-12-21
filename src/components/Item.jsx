@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Text, Flex } from '@chakra-ui/react';
-import ItemCount from './img/ItemCount';
+import ItemCount from './ItemCount';
 
 const Item = ({ titulo, descripcion, precio }) => {
   return (

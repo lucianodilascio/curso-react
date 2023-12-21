@@ -3,6 +3,8 @@ import CartWidget from './CartWidget'
 import { FaShoppingCart } from "react-icons/fa";
 import { Flex, Spacer, Box, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react'
 import logo from '../components/img/logo.png';
+import { Link } from 'react-router-dom';
+
 
 
 const NavBar = () => {
@@ -11,7 +13,10 @@ const NavBar = () => {
 
             <Flex className='titulo'>
                 <Box className='tituloBasquetmania' p='4'>
-                    <img className='logo' src={logo} alt="Basquetmania Logo" />
+                    <Link to="/">
+                        <img className='logo' src={logo} alt="Basquetmania Logo" />
+                    </Link>
+
 
 
                 </Box>
@@ -27,20 +32,25 @@ const NavBar = () => {
                         CATEGORIAS
                     </MenuButton>
                     <MenuList>
+                        <Link to={'categoria/zapatillas'}>
                         <MenuItem className='desplegable'>Zapatillas</MenuItem>
+                        </Link>
+                        <Link to={'categoria/indumentaria'}>
                         <MenuItem className='desplegable'>Indumentaria</MenuItem>
-
+                        </Link>
                     </MenuList>
                 </Menu>
 
 
                 <Spacer />
 
+                <Link to="/cart">
+                    <Box className='titulo3' p='20'>
 
-                <Box className='titulo3' p='20'>
-                    <FaShoppingCart size={40} />
-                    <CartWidget />
-                </Box>
+                        <FaShoppingCart size={40} />
+                        <CartWidget />
+                    </Box>
+                </Link>
             </Flex>
 
 
@@ -49,4 +59,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBar;

@@ -11,6 +11,7 @@ const ItemList = ({ productos }) => {
                     return (
 
                         <Item
+                            key={p.id}
                             titulo={p.titulo}
                             descripcion={p.descripcion}
                             precio={p.precio}
@@ -23,4 +24,4 @@ const ItemList = ({ productos }) => {
     )
 }
 
-export default ItemList
+export default ItemList;
