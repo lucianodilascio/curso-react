@@ -1,11 +1,10 @@
 import React from 'react'
 import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NavBar from './components/Navbar'
-import ItemListContainer from './components/ItemListContainer'
+import NavBar from './components/NavBar'
 import ItemDetailContainer from './components/ItemDetailContainer'
-import Cart from './components/cart'
-
+import ItemListContainer from './components/ItemListContainer'
+import Cart from './components/Cart'
 
 const App = () => {
   return (
