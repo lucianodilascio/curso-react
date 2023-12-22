@@ -13,19 +13,19 @@ const App = () => {
       <NavBar />
 
       <Routes>
-        
-      <Route  path = '/' element={ <ItemListContainer/>} />
-      <Route  path = '/cart' element={ <Cart/>} />
-      <Route  exact path = '/categoria/:categoriaId' element={ <ItemListContainer/>} />
-      <Route  exact path = '/producto/:productoId' element={ <ItemDetailContainer/>} />
 
+        <Route path='/' element={<ItemListContainer />} />
+        <Route path='/cart' element={<Cart />} />
+        <Route exact path='/categoria/:categoriaId' element={<ItemListContainer />} />
+        <Route exact path='/producto/:productoId' element={<ItemDetailContainer />} />
       
+
       </Routes>
-      
-      
-      
-      <ItemListContainer  greeting={"Bienvenidos a Basquetmania!"} />
 
+        <ItemDetailContainer />
+
+      
+      
 
     </BrowserRouter>
   )

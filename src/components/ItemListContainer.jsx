@@ -2,7 +2,7 @@ import React from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = ({}) => {
 
   const {categoriaId} = useParams()
 
@@ -23,7 +23,7 @@ const ItemListContainer = ({ greeting }) => {
         resolve(productos)
       }, 3000)
     } else {
-      reject("nose obtuvieron productos")
+      reject("no se obtuvieron productos")
     }
 
   })
