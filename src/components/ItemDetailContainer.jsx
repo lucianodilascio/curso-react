@@ -17,7 +17,7 @@ const ItemDetailContainer = ({greeting }) => {
   
     const mostrarProductos = new Promise((resolve, reject) => {
   
-      if (productos.lenght > 0) {
+      if (productos.length > 0) {
         setTimeout(() => {
           resolve(productos)
         }, 3000)
