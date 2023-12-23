@@ -1,11 +1,13 @@
-import { useState } from 'react'
+import { useState, UseEffect } from 'react'
 import ItemList from './ItemList'
 import { useParams } from 'react-router-dom'
 
 const ItemListContainer = () => {
 
-  const {categoriaId} = useParams()
-  console.log(categoriaId)
+  const { categoryId } = useParams()
+  console.log(categoryId)
+
+
 
 
 
@@ -40,11 +42,14 @@ const ItemListContainer = () => {
     })
 
 
+  const productosFiltrados = productos.filter((producto) => producto.categoria == categoryId)
 
   return (
-    <center>
-      <ItemList productos={productos} />
-    </center>
+    <div>
+      {
+        categoryId ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
+      }
+    </div>
   )
 }
 

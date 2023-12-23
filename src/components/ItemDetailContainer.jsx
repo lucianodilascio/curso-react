@@ -1,9 +1,10 @@
 import React from 'react'
 import {useParams} from 'react-router-dom'
 import ItemDetail from './ItemDetail'
-const ItemDetailContainer = ({greeting }) => {
+const ItemDetailContainer = () => {
 
-    const {categoriaId} = useParams()
+  const { id } = useParams()
+   console.log(id)
   
     const productos = [
       { id: 1, titulo: "Curry", descripcion: "Zapatilla Stephen Curry", precio: 85000, categoria:"zapatillas" },
@@ -36,12 +37,14 @@ const ItemDetailContainer = ({greeting }) => {
     })
   
   
+    const productoFiltrado = productos.find((producto)=> producto.id == id)
+    console.log(productoFiltrado)
+
   
     return (
-      <center>
-        <ItemDetail productos={productos} />
-        
-      </center>
+      <div>
+    <ItemDetail producto={productoFiltrado} />
+    </div>
     )
   }
 
