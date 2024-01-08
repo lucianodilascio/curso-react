@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Button } from '@chakra-ui/react'
+import Swal from 'sweetalert2'
 
 const ItemCount = () => {
 
@@ -8,7 +9,8 @@ const ItemCount = () => {
 
 
     const mostrarMensaje = () => {
-        alert(`agregado al carrito ${contador} unidades`)
+        Swal.fire(`Has agregado al carrito ${contador} unidades`);
+        
     }
 
 

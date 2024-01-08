@@ -9,7 +9,8 @@ const {id}= useParams()
 
 
   return (
-    <Flex  maxW='sm' mb='6' mt='4'> 
+    
+    <Flex  maxW='sm' mb='6' mt='4' > 
       <Card width='100%' boxShadow='dark-lg' p='6' rounded='md' bg='white'>
         <CardBody>
           <Stack mt='6' spacing='6'>
