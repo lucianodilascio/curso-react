@@ -22,16 +22,16 @@ const Form = () => {
 
 
     return (
-        <div>
-            <form action="" onSubmit={handleSumbit}>
-                <Input placeholder='Nombre y Apellido' onChange={(e) => setNombre(e.target.value)} value={nombre} />
+        <div className='container'>
+            <form action="" className='formulario' onSubmit={handleSumbit}>
+                <Input width="1000px" placeholder='Nombre y Apellido' onChange={(e) => setNombre(e.target.value)} value={nombre} />
                 <Input placeholder='Correo Electronico' type='email' onChange={(e) => setEmail(e.target.value)} value={email} />
-                <Button colorScheme='teal' variant='outline' type="sumbit">
+                <Button className='botonEnviar' width="200px" colorScheme='teal' variant='outline' type="sumbit">
                     Enviar Información
                 </Button>
 
 
-                <Text>
+                <Text textAlign="center">
                     {`el id de de su compra es: ${purchaseId}`}
                 </Text>
             </form>

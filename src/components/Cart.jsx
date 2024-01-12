@@ -1,11 +1,19 @@
 import React from 'react'
 import Form from './Form';
+import { useContext } from 'react';
+import { CartContext } from '../context/ShoppingCartContext';
 
 const Cart = () => {
+
+const {cart,setCart} = useContext(CartContext);
+
+
+  
+
   return (
     <div>
-<Form/>
-
+      <h1>{cart}</h1>
+      <Form />
     </div>
   )
 }
