@@ -1,11 +1,11 @@
 import React from 'react'
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Flex, Center } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Flex, Center, SimpleGrid } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 
 const Item = ({ titulo, id }) => {
   return (
-    <Center  maxW='full' mb='6' mt='4'>
+    <Center  maxW='full' mb='6' mt='4' >
     <Flex> 
       <Card width='md' boxShadow='dark-lg' p='6' rounded='md' bg='white'>
         <CardBody>
@@ -15,7 +15,7 @@ const Item = ({ titulo, id }) => {
           </Stack>
         </CardBody>
         <Divider />
-        <CardFooter>
+        <CardFooter  ml='32' >
           <ButtonGroup spacing='2' >
           <Link to={`/producto/${id}`}>
            <Button>Ver detalle</Button>

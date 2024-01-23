@@ -1,10 +1,11 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import {useParams} from 'react-router-dom'
 import ItemDetail from './ItemDetail'
+
 const ItemDetailContainer = () => {
 
   const { id } = useParams()
-   console.log(id)
+  
   
     const productos = [
       { id: 1, titulo: "Curry", descripcion: "Zapatilla Stephen Curry", precio: 85000, categoria:"zapatillas" },
@@ -21,7 +22,7 @@ const ItemDetailContainer = () => {
       if (productos.length > 0) {
         setTimeout(() => {
           resolve(productos)
-        }, 3000)
+        }, 5000)
       } else {
         reject("no se obtuvieron productos")
       }

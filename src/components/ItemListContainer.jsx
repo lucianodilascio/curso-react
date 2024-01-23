@@ -18,7 +18,7 @@ const ItemListContainer = () => {
           { id: 5, titulo: "Rodillera", descripcion: "Rodillera Nike", precio: 25000, categoria: "indumentaria" },
           { id: 6, titulo: "Vincha", descripcion: "Vincha Nike", precio: 23000, categoria: "indumentaria" }
         ]);
-      }, 3000); 
+      }, 1000); 
 
       
     });

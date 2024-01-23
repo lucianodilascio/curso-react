@@ -11,6 +11,7 @@ import ShoppingCartContext from './context/ShoppingCartContext'
 const App = () => {
   return (
     <BrowserRouter>
+
       <ShoppingCartContext>
 
       <NavBar />
@@ -22,17 +23,10 @@ const App = () => {
         <Route exact path='/producto/:id' element={<ItemDetailContainer />} />
         <Route exact path='/category/:categoryId' element={<ItemListContainer />} />
       
-
       </Routes>
-
-        
-
-      
 
       </ShoppingCartContext>
       
-      
-
     </BrowserRouter>
   )
 }

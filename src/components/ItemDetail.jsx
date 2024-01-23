@@ -1,16 +1,18 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import {Flex,Stack,Heading,Text,Card,CardBody,Divider,ButtonGroup,CardFooter } from '@chakra-ui/react'
+import { Flex, Stack, Heading, Text, Card, CardBody, Divider, ButtonGroup, CardFooter } from '@chakra-ui/react'
 import ItemCount from './ItemCount'
 
-const ItemDetail = ({producto}) => {
+const ItemDetail = ({ producto }) => {
 
-const {id}= useParams()
+  
+  
+    const { id } = useParams()
 
 
   return (
-    
-    <Flex  maxW='sm' mb='6' mt='4' > 
+
+    <Flex maxW='sm' mb='6' mt='4' ml='800' >
       <Card width='100%' boxShadow='dark-lg' p='6' rounded='md' bg='white'>
         <CardBody>
           <Stack mt='6' spacing='6'>
@@ -26,7 +28,7 @@ const {id}= useParams()
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2' >
-            <ItemCount />
+            <ItemCount producto={producto}  />
           </ButtonGroup>
         </CardFooter>
       </Card>

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Input, Button, Text } from '@chakra-ui/react'
 import Swal from 'sweetalert2'
 const Form = () => {
-
+    
     const [nombre, setNombre] = useState("")
     const [email, setEmail] = useState("")
     const [purchaseId, setPurchaseId] = useState("vrx-2443")
@@ -23,6 +23,7 @@ const Form = () => {
 
     return (
         <div className='container'>
+            <p className='contactenos'>Contactenos!  a la brevedad le informaremos sobre su compra</p>
             <form action="" className='formulario' onSubmit={handleSumbit}>
                 <Input width="1000px" placeholder='Nombre y Apellido' onChange={(e) => setNombre(e.target.value)} value={nombre} />
                 <Input placeholder='Correo Electronico' type='email' onChange={(e) => setEmail(e.target.value)} value={email} />
