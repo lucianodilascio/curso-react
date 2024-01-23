@@ -28,7 +28,7 @@ const ItemDetail = ({ producto }) => {
         <Divider />
         <CardFooter>
           <ButtonGroup spacing='2' >
-            <ItemCount producto={producto}  />
+          <ItemCount producto={producto} />
           </ButtonGroup>
         </CardFooter>
       </Card>

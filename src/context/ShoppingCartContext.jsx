@@ -7,22 +7,24 @@ export const ShoppingCartProvider = ({ children }) => {
 const [cart, setCart] = useState([])
 
 const agregarAlCarrito = (producto, contador) => {
-    
- const agregarItem = {...producto, contador}
+    const nuevoCarrito = [...cart];
+    const enCarritoIndex = nuevoCarrito.findIndex((item) => item.id === producto.id);
+  
+    if (enCarritoIndex !== -1) {
+      nuevoCarrito[enCarritoIndex].contador += contador;
+  
+      // Si contador es negativo, significa restar
+      if (contador < 0 && nuevoCarrito[enCarritoIndex].contador < 0) {
+        nuevoCarrito[enCarritoIndex].contador = 0; // Evitar cantidades negativas
+      }
+    } else {
+      nuevoCarrito.push({ ...producto, contador });
+    }
+  
+    setCart(nuevoCarrito);
+  };
 
- const nuevoCarrito = [...cart]
-
- const enCarrito = nuevoCarrito.find ((item) => item.id === producto.id)
- if (enCarrito) {
-    enCarrito.contador += contador
- } else {
-    nuevoCarrito.push(agregarItem)
- }
- setCart(nuevoCarrito);
-
-
-}
-
+  
 
 
 const [contador, setContador] = useState(0)
@@ -50,7 +52,7 @@ const cantidadEnCarrito = () => {
 
 
     return (
-        <CartContext.Provider value={{cart, setCart, sumar, restar, contador, setContador, cantidadEnCarrito, agregarAlCarrito}}>
+        <CartContext.Provider value={{cart, setCart, sumar, restar, contador,  setContador, cantidadEnCarrito, agregarAlCarrito}}>
             {children}
         </CartContext.Provider>
     )

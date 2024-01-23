@@ -1,52 +1,88 @@
-import React from 'react';
-import Form from './Form';
-import { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
-import Loader from './Loader';
-import { Button } from '@chakra-ui/react';
+import { Flex, Stack, Heading, Text, Button, ButtonGroup, Card, CardBody, Divider, CardFooter } from '@chakra-ui/react';
+import { MinusIcon, AddIcon } from '@chakra-ui/icons';
 
 const Cart = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, agregarAlCarrito } = useContext(CartContext);
 
-
-  const handleRemoveItem = (productId) =>{
-
+  const handleRemoveItem = (productId) => {
     const newCart = cart.filter((item) => item.id !== productId);
-
-    setCart(newCart)
-    };
-
-    const handleEmptyCart = () => {
-
-      setCart([])
-    }
-
-
-
-
-
-    return (
-      <div>
-        <h1 className='carritoCompras'>Carrito de Compras</h1>
-        {cart.length === 0 ? (
-          <p className='carritoVacio'>El carrito está vacío</p>
-        ) : (
-          <div>
-            {cart.map((item) => (
-              <div key={item.id}>
-                <p>{item.titulo}</p>
-                <p>Precio: ${item.precio}</p>
-                <p>Cantidad: {item.contador}</p>
-                {/* Agrega botones para manipular la cantidad y eliminar el producto */}
-                <Button onClick={() => handleRemoveItem(item.id)}>Eliminar</Button>
-              </div>
-            ))}
-            {/* Agrega un botón para vaciar el carrito */}
-            <Button onClick={handleEmptyCart}>Vaciar Carrito</Button>
-          </div>
-        )}
-      </div>
-    );
+    setCart(newCart);
   };
-  
-  export default Cart;
+
+  const handleEmptyCart = () => {
+    setCart([]);
+  };
+
+  const handleAddOne = (productId) => {
+    agregarAlCarrito({ id: productId }, 1);
+  };
+
+  const handleRemoveOne = (productId) => {
+    agregarAlCarrito({ id: productId }, -1);
+  };
+
+  return (
+    <Flex direction="column" align="center">
+      <Heading as="h1" mb="4" fontSize="xl">
+        Carrito de Compras
+      </Heading>
+      {cart.length === 0 ? (
+        <Text mb="4">El carrito está vacío</Text>
+      ) : (
+        <Stack spacing="7" width="50%">
+          {cart.map((item) => (
+            <Card key={item.id} boxShadow="dark-lg" p="6" rounded="md" bg="white" width="100%">
+              <CardBody>
+                <Stack spacing="6">
+                  <Heading size="md" mx="auto">
+                    {item.titulo}
+                  </Heading>
+                  <Text mx="auto">{item.descripcion}</Text>
+                  <Text mx="auto" color="blue.600" fontSize="2xl">
+                    ${item.precio} x {item.contador}
+                  </Text>
+                </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+                <ButtonGroup margin="auto" spacing="2">
+                  <Button
+                    onClick={() => handleRemoveOne(item.id)}
+                    colorScheme="blue"
+                    leftIcon={<MinusIcon />} // Asegúrate de importar el ícono o usa otro
+                  >
+                    
+                  </Button>
+                    
+                
+                  <Button
+                    onClick={() => handleRemoveItem(item.id)}
+                    colorScheme="red"
+                    ml="auto"
+                  >
+                    Eliminar
+                  </Button>
+
+                  <Button
+                    onClick={() => handleAddOne(item.id)}
+                    colorScheme="blue"
+                    rightIcon={<AddIcon />} 
+                  >
+                  </Button>
+                </ButtonGroup>
+              </CardFooter>
+            </Card>
+          ))}
+          <Button colorScheme="blue" onClick={handleEmptyCart} width="30%" mx="auto">
+            Vaciar Carrito
+          </Button>
+        </Stack>
+      )}
+    </Flex>
+  );
+};
+
+export default Cart;
+
