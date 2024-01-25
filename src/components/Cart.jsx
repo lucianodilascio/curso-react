@@ -25,11 +25,11 @@ const Cart = () => {
 
   return (
     <Flex direction="column" align="center">
-      <Heading as="h1" mb="4" fontSize="xl">
+      <Text as="h1" mb="4" className='tamañoTitulo'>
         Carrito de Compras
-      </Heading>
+      </Text>
       {cart.length === 0 ? (
-        <Text mb="4">El carrito está vacío</Text>
+        <Text mb="4" className='tamañoTituloCarrito'>El carrito está vacío</Text>
       ) : (
         <Stack spacing="7" width="50%">
           {cart.map((item) => (
@@ -51,7 +51,7 @@ const Cart = () => {
                   <Button
                     onClick={() => handleRemoveOne(item.id)}
                     colorScheme="blue"
-                    leftIcon={<MinusIcon />} // Asegúrate de importar el ícono o usa otro
+                    leftIcon={<MinusIcon />} 
                   >
                     
                   </Button>

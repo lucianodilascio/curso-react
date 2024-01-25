@@ -13,9 +13,9 @@ const agregarAlCarrito = (producto, contador) => {
     if (enCarritoIndex !== -1) {
       nuevoCarrito[enCarritoIndex].contador += contador;
   
-      // Si contador es negativo, significa restar
+      
       if (contador < 0 && nuevoCarrito[enCarritoIndex].contador < 0) {
-        nuevoCarrito[enCarritoIndex].contador = 0; // Evitar cantidades negativas
+        nuevoCarrito[enCarritoIndex].contador = 0; 
       }
     } else {
       nuevoCarrito.push({ ...producto, contador });

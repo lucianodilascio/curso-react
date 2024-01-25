@@ -3,7 +3,11 @@ import { Spinner } from '@chakra-ui/react'
 
 const Loader = () => {
   return (
-    <div><Spinner /></div>
+    <div className='spinner-container'>
+      <div className='spinner'>
+        <Spinner size='xl'  />
+      </div>
+    </div>
   )
 }
 

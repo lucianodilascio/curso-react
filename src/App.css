@@ -112,3 +112,23 @@ margin-top: 100px;
   text-align: center;
   font-weight: bold;
 }
+
+.tamañoTituloCarrito{
+  font-size: 3rem;
+}
+
+.tamañoTitulo {
+  font-size: 4rem;
+  text-decoration: underline;
+  margin-top: 10px;
+  font-weight: bold;
+  
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+}
+

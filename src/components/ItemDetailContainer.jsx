@@ -1,52 +1,43 @@
-import { useState, useEffect } from 'react'
-import {useParams} from 'react-router-dom'
-import ItemDetail from './ItemDetail'
+import React, { useState, useEffect } from 'react';
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import ItemDetail from './ItemDetail';
+import Loader from './Loader';
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
+  const [producto, setProducto] = useState({});
+  const [loading, setLoading] = useState(true);
+  const { id } = useParams();
 
-  const { id } = useParams()
-  
-  
-    const productos = [
-      { id: 1, titulo: "Curry", descripcion: "Zapatilla Stephen Curry", precio: 85000, categoria:"zapatillas" },
-      { id: 2, titulo: "Lebron", descripcion: "Zapatilla Lebron James", precio: 90000, categoria:"zapatillas" },
-      { id: 3, titulo: "Jordan", descripcion: "Zapatilla Michael Jordan", precio: 95000, categoria:"zapatillas" },
-      { id: 4, titulo: "Manga", descripcion: "Manga para el brazo Nike", precio: 20000, categoria:"indumentaria" },
-      { id: 5, titulo: "Rodillera", descripcion: "Rodillera Nike", precio: 25000, categoria:"indumentaria" },
-      { id: 6, titulo: "Vincha", descripcion: "Vincha Nike", precio: 23000, categoria:"indumentaria"}
-    ]
-  
-  
-    const mostrarProductos = new Promise((resolve, reject) => {
-  
-      if (productos.length > 0) {
-        setTimeout(() => {
-          resolve(productos)
-        }, 5000)
-      } else {
-        reject("no se obtuvieron productos")
+  useEffect(() => {
+    const fetchProducto = async () => {
+      const db = getFirestore();
+      const itemRef = doc(db, "zapatillas", id);
+
+      const snapshot = await getDoc(itemRef);
+
+      if (snapshot.exists()) {
+        const data = snapshot.data();
+        setProducto({ id: snapshot.id, ...data });
       }
-  
-    })
-  
-    mostrarProductos
-    .then((resultado) => {
-      console.log(resultado)
-    })
-    .catch((error) => {
-      console.log(error)
-    })
-  
-  
-    const productoFiltrado = productos.find((producto)=> producto.id == id)
-    console.log(productoFiltrado)
 
-  
-    return (
-      <div>
-    <ItemDetail producto={productoFiltrado} />
+      setLoading(false);
+    };
+
+    fetchProducto();
+  }, [id]);
+
+  return (
+    <div>
+      {loading ? (
+        <Loader />
+      ) : (
+        <div>
+          <ItemDetail producto={producto} />
+        </div>
+      )}
     </div>
-    )
-  }
+  );
+};
 
-export default ItemDetailContainer
+export default ItemDetailContainer;
