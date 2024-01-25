@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import { SimpleGrid } from '@chakra-ui/react';
 
 const ItemList = ({ productos }) => {
   if (productos.length === 0) {
@@ -7,8 +8,13 @@ const ItemList = ({ productos }) => {
   }
 
   return (
-    <div>
-      {productos.map((producto) => (
+    
+    <SimpleGrid columns={{sm:'auto', md:3}} bg='#888888'>
+    {    
+    
+      productos.map((producto) => {
+        return (
+            <div key={producto.id}>
         <Item
           key={producto.id}
           titulo={producto.titulo}
@@ -17,10 +23,15 @@ const ItemList = ({ productos }) => {
           categoria={producto.categoria}
           id={producto.id}
         />
-      ))}
-    </div>
-  );
-};
+
+        </div>
+        )
+      })
+    }
+    </SimpleGrid>
+  )
+}
+
 
 export default ItemList;
 

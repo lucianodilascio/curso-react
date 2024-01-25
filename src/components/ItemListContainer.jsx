@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import ItemList from './ItemList';
 import Loader from './Loader';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import { useParams } from 'react-router-dom';
 
 const ItemListContainer = () => {
+  const {id} = useParams()
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,13 +23,15 @@ const ItemListContainer = () => {
       });
   }, []);
 
+  const productosFiltrados = productos.filter((producto) => producto.categoria == id)
+
   return (
     <div>
       {loading ? (
         <Loader />
       ) : (
         <div>
-          <ItemList productos={productos} />
+          { id ? <ItemList productos={productosFiltrados} /> :  <ItemList productos={productos}  />}
         </div>
       )}
     </div>

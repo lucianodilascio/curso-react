@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import ItemDetail from './ItemDetail';
@@ -5,26 +6,23 @@ import Loader from './Loader';
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
-  const [producto, setProducto] = useState({});
+  const [producto, setProducto] = useState(null);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchProducto = async () => {
-      const db = getFirestore();
-      const itemRef = doc(db, "zapatillas", id);
+    const db = getFirestore();
+    const itemRef = doc(db, "zapatillas", id);
 
-      const snapshot = await getDoc(itemRef);
-
-      if (snapshot.exists()) {
-        const data = snapshot.data();
-        setProducto({ id: snapshot.id, ...data });
-      }
-
-      setLoading(false);
-    };
-
-    fetchProducto();
+    getDoc(itemRef)
+      .then((snapshot) => {
+        setProducto({ ...snapshot.data(), id: snapshot.id });
+        setLoading(false); 
+      })
+      .catch((error) => {
+        console.error("Error getting document:", error);
+        setLoading(false); 
+      });
   }, [id]);
 
   return (
@@ -32,9 +30,7 @@ const ItemDetailContainer = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div>
-          <ItemDetail producto={producto} />
-        </div>
+        producto && <ItemDetail producto={producto} />
       )}
     </div>
   );
