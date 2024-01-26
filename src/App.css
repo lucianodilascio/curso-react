@@ -123,6 +123,7 @@ margin-top: 100px;
   margin-top: 10px;
   font-weight: bold;
   
+  
 }
 
 .spinner-container {
@@ -132,3 +133,16 @@ margin-top: 100px;
   height: 100vh; 
 }
 
+.nuestrosProductos {
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 50px;
+  color: rgb(202, 100, 16);
+  text-shadow: -3px 3px 2px rgb(0, 0, 0);
+  padding: 10px;
+  background-color: grey;
+
+}

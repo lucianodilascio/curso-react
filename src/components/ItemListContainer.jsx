@@ -4,6 +4,7 @@ import Loader from './Loader';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
 
+
 const ItemListContainer = () => {
   const {id} = useParams()
   const [productos, setProductos] = useState([]);
@@ -18,15 +19,17 @@ const ItemListContainer = () => {
         const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
         setProductos(docs);
       })
+      
       .finally(() => {
         setLoading(false);
       });
-  }, []);
-
-  const productosFiltrados = productos.filter((producto) => producto.categoria == id)
-
+    }, []);
+    
+    const productosFiltrados = productos.filter((producto) => producto.categoria == id)
+    
   return (
     <div>
+      <h1 className='nuestrosProductos'>Nuestros Productos</h1>
       {loading ? (
         <Loader />
       ) : (

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
-import { Flex, Stack, Heading, Text, Button, ButtonGroup, Card, CardBody, Divider, CardFooter } from '@chakra-ui/react';
+import { Flex, Stack, Heading, Text, Button, ButtonGroup, Card, CardBody, Divider, CardFooter, Image, Center } from '@chakra-ui/react';
 import { MinusIcon, AddIcon } from '@chakra-ui/icons';
 
 const Cart = () => {
@@ -35,6 +35,13 @@ const Cart = () => {
           {cart.map((item) => (
             <Card key={item.id} boxShadow="dark-lg" p="6" rounded="md" bg="white" width="100%">
               <CardBody>
+                <Image
+                  src={item.imagen}
+                  alt={item.titulo}
+                  borderRadius="lg" boxSize='300px' objectFit="cover" ml= "50px" mx="auto">
+
+                </Image>
+
                 <Stack spacing="6">
                   <Heading size="md" mx="auto">
                     {item.titulo}
@@ -51,12 +58,12 @@ const Cart = () => {
                   <Button
                     onClick={() => handleRemoveOne(item.id)}
                     colorScheme="blue"
-                    leftIcon={<MinusIcon />} 
+                    leftIcon={<MinusIcon />}
                   >
-                    
+
                   </Button>
-                    
-                
+
+
                   <Button
                     onClick={() => handleRemoveItem(item.id)}
                     colorScheme="red"
@@ -68,7 +75,7 @@ const Cart = () => {
                   <Button
                     onClick={() => handleAddOne(item.id)}
                     colorScheme="blue"
-                    rightIcon={<AddIcon />} 
+                    rightIcon={<AddIcon />}
                   >
                   </Button>
                 </ButtonGroup>
