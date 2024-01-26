@@ -18,7 +18,7 @@
 **Estilización con Temas y Componentes Reutilizables**: Facilita la creación de una interfaz consistente y fácilmente personalizable.
 Node JS
 
-**Servidor Backend: Utilización de Node JS para gestionar las operaciones del servidor y la comunicación con Firebase.
+**Servidor Backend**: Utilización de Node JS para gestionar las operaciones del servidor y la comunicación con Firebase.
 
 ## Funcionamiento del E-commerce:
 
