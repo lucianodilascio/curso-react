@@ -3,14 +3,19 @@ import ItemList from './ItemList';
 import Loader from './Loader';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 import { useParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../context/ShoppingCartContext';
 
 
 const ItemListContainer = () => {
   const {id} = useParams()
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { setContador } = useContext(CartContext);
 
   useEffect(() => {
+
+    setContador(0);
     const db = getFirestore();
     const itemsCollection = collection(db, "zapatillas");
 

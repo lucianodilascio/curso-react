@@ -13,11 +13,11 @@ const ItemDetail = ({ producto }) => {
       <Image src={producto.imagen}/>
         <CardBody>  
           <Stack mt='6' spacing='6'>
-            <Heading size='md'>{producto.titulo}</Heading>
-            <Text>
+            <Heading size='md' >{producto.titulo}</Heading>
+            <Text textAlign="center" textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)">
               {producto.descripcion}.
             </Text>
-            <Text color='blue.600' fontSize='2xl'>
+            <Text color='blue.600' fontSize='2xl' textAlign="center" fontWeight="bold">
               ${producto.precio}
             </Text>
           </Stack>

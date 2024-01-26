@@ -1,17 +1,18 @@
 import React from 'react'
-import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Flex, Center, Image } from '@chakra-ui/react';
+import { Button, ButtonGroup, Card, CardBody, CardFooter, Divider, Heading, Stack, Flex, Center, Image, Text } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
 
-const Item = ({ titulo, id, imagen }) => {
+const Item = ({  id, imagen,descripcion, nombre}) => {
   return (
     <Center  maxW='full' mb='6' mt='4' >
     <Flex> 
       <Card width='md' boxShadow='dark-lg' p='6' rounded='md' bg='white'>
+        <Text textAlign="center" fontWeight="bold" textShadow="2px 2px 4px rgba(0, 0, 0, 0.5)" mb="10px">{nombre}</Text>
         <Image src={imagen}/>
         <CardBody>
           <Stack mt='6' spacing='6'>
-            <Heading size='md'>{titulo}</Heading>
+            
       
           </Stack>
         </CardBody>

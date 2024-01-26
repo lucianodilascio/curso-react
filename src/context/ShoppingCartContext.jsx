@@ -31,13 +31,17 @@ export const ShoppingCartProvider = ({ children }) => {
   };
 
   const restar = () => {
-    if (contador > 0) {
+    if (contador > 1) {
       setContador(contador - 1);
     }
   };
 
   const cantidadEnCarrito = () => {
     return cart.reduce((acc, producto) => acc + producto.contador, 0);
+  };
+
+  const calcularPrecioTotal = () => {
+    return cart.reduce((acc, producto) => acc + producto.precio * producto.contador, 0);
   };
 
   return (
@@ -51,6 +55,7 @@ export const ShoppingCartProvider = ({ children }) => {
         setContador,
         cantidadEnCarrito,
         agregarAlCarrito,
+        calcularPrecioTotal
       }}
     >
       {children}

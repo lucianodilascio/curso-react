@@ -8,7 +8,7 @@ const CartWidget = () => {
   return (
     <div>
       
-      {contador > 0 && <span className="contador-carrito">{contador}</span>}
+      
     </div>
   );
 };

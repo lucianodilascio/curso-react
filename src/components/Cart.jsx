@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { CartContext } from '../context/ShoppingCartContext';
 import { Flex, Stack, Heading, Text, Button, ButtonGroup, Card, CardBody, Divider, CardFooter, Image, Center } from '@chakra-ui/react';
 import { MinusIcon, AddIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
-  const { cart, setCart, agregarAlCarrito } = useContext(CartContext);
+  const { cart, setCart, agregarAlCarrito, setContador } = useContext(CartContext);
 
   const handleRemoveItem = (productId) => {
     const newCart = cart.filter((item) => item.id !== productId);
@@ -13,6 +14,7 @@ const Cart = () => {
 
   const handleEmptyCart = () => {
     setCart([]);
+    setContador(0);
   };
 
   const handleAddOne = (productId) => {
@@ -22,6 +24,13 @@ const Cart = () => {
   const handleRemoveOne = (productId) => {
     agregarAlCarrito({ id: productId }, -1);
   };
+
+  const fullPrice = () => {
+    if (!Array.isArray(cart)) {
+      return 0;
+    } else {
+      return cart.reduce((acu, item) => acu + item.precio * item.contador, 0);
+  }}
 
   return (
     <Flex direction="column" align="center">
@@ -38,7 +47,7 @@ const Cart = () => {
                 <Image
                   src={item.imagen}
                   alt={item.titulo}
-                  borderRadius="lg" boxSize='300px' objectFit="cover" ml= "50px" mx="auto">
+                  borderRadius="lg" boxSize='300px' objectFit="cover" ml="50px" mx="auto">
 
                 </Image>
 
@@ -48,7 +57,7 @@ const Cart = () => {
                   </Heading>
                   <Text mx="auto">{item.descripcion}</Text>
                   <Text mx="auto" color="blue.600" fontSize="2xl">
-                    ${item.precio} x {item.contador}
+                    ${item.precio * item.contador} X {item.contador}
                   </Text>
                 </Stack>
               </CardBody>
@@ -82,14 +91,27 @@ const Cart = () => {
               </CardFooter>
             </Card>
           ))}
+          
           <Button colorScheme="blue" onClick={handleEmptyCart} width="30%" mx="auto">
             Vaciar Carrito
           </Button>
+          <Heading mx="auto">
+          
+                Precio final: ${fullPrice()}
+                
+          </Heading>
+          <Button background="gray" width="30%" mx="auto">
+          <Link to="/Form"> Finalizar compra</Link>
+          </Button>
         </Stack>
       )}
+
     </Flex>
+
   );
+
 };
+
 
 export default Cart;
 

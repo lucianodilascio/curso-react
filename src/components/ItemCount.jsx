@@ -17,6 +17,7 @@ const ItemCount = ({ producto }) => {
         agregarAlCarrito(producto, contador);
       }
     };
+    
   
     return (
       <div className='centradoBtn'>
