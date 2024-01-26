@@ -9,28 +9,28 @@
 - React JS
 
 
-**React + Vite: Desarrollado con React para una interfaz de usuario dinámica y eficiente.
+**React + Vite**: Desarrollado con React para una interfaz de usuario dinámica y eficiente.
 
-**Estado Global (Context API): Manejo del estado global para mantener la coherencia de datos en toda la aplicación.
+**Estado Global (Context API)**: Manejo del estado global para mantener la coherencia de datos en toda la aplicación.
 
-**Chakra UI: Diseño Moderno y Responsivo: Interfaz de usuario atractiva y adaptada a diferentes dispositivos.
+**Chakra UI**: Diseño Moderno y Responsivo: Interfaz de usuario atractiva y adaptada a diferentes dispositivos.
 
-**Estilización con Temas y Componentes Reutilizables: Facilita la creación de una interfaz consistente y fácilmente personalizable.
+**Estilización con Temas y Componentes Reutilizables**: Facilita la creación de una interfaz consistente y fácilmente personalizable.
 Node JS
 
 **Servidor Backend: Utilización de Node JS para gestionar las operaciones del servidor y la comunicación con Firebase.
 
 ## Funcionamiento del E-commerce:
 
- - **Navegación por Catálogos/Categorías: Explora nuestra amplia gama de zapatillas de baloncesto y accesorios deportivos organizados por categorías.
+ - **Navegación por Catálogos/Categorías**: Explora nuestra amplia gama de zapatillas de baloncesto y accesorios deportivos organizados por categorías.
 
-- **Añadir Productos al Carrito: Selecciona tus productos favoritos y agrégales al carrito de compra con un simple clic.
+- **Añadir Productos al Carrito**: Selecciona tus productos favoritos y agrégales al carrito de compra con un simple clic.
 
-- **Gestión del Carrito: Incrementa, disminuye o vacía completamente tu carrito según tus preferencias.
+- **Gestión del Carrito**: Incrementa, disminuye o vacía completamente tu carrito según tus preferencias.
 
-- **Registro en Firebase: Al confirmar tu pedido, los datos se registran de forma segura en Firebase, incluyendo los contenidos del carrito, detalles del pedido, información de contacto y la fecha de realización.
+- **Registro en Firebase**: Al confirmar tu pedido, los datos se registran de forma segura en Firebase, incluyendo los contenidos del carrito, detalles del pedido, información de contacto y la fecha de realización.
 
- - **ID de Compra para Seguimiento: Al finalizar la compra, recibirás un ID único para rastrear el estado de tu pedido.
+ - **ID de Compra para Seguimiento**: Al finalizar la compra, recibirás un ID único para rastrear el estado de tu pedido.
 
 
 
